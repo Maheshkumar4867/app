@@ -1,9 +1,8 @@
 import React, { Component, createRef } from 'react';
 import { View, StyleSheet, Dimensions, StatusBar, Platform } from 'react-native';
-// Note: These should be installed as peer dependencies
-// import Video from 'react-native-video';
-// import Orientation from 'react-native-orientation-locker';
-// import KeepAwake from 'react-native-keep-awake';
+import Video from 'react-native-video';
+import Orientation from 'react-native-orientation-locker';
+import KeepAwake from 'react-native-keep-awake';
 
 import Controls from '../ui/Controls';
 import Overlays from '../ui/Overlays';
@@ -33,7 +32,7 @@ interface VideoPlayerState {
 }
 
 export default class VideoPlayer extends Component<PlayerOptions, VideoPlayerState> {
-  private videoRef = createRef<any>();
+  private videoRef = createRef<Video>();
   private controlsTimer?: ReturnType<typeof setTimeout>;
   private adsManager?: AdsManager;
   private eventBus = new EventBus();

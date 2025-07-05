@@ -4,6 +4,22 @@ A comprehensive React Native video player SDK for **Android and iOS** with advan
 
 > ⚠️ **Platform Support**: This SDK is specifically designed for React Native mobile applications (Android & iOS). It is **not** for web browsers. For web video players, please use a different solution.
 
+## Built on react-native-video
+
+This SDK is built on top of the popular [`react-native-video`](https://github.com/react-native-video/react-native-video) library, which provides the core video playback functionality. The SDK enhances react-native-video with:
+
+- **Additional Features**: Ads, subtitles, thumbnails, analytics, and TV navigation
+- **Enhanced API**: Simplified and consistent API across platforms
+- **Device Optimization**: Automatic device detection and optimization
+- **Advanced Streaming**: Better HLS/DASH support with automatic quality selection
+- **Easy Integration**: Plug-and-play components with sensible defaults
+
+**You can use this SDK in two ways:**
+1. **Direct react-native-video usage**: For basic video playback with full control
+2. **Enhanced SDK components**: For advanced features with minimal setup
+
+📖 **[Complete react-native-video Usage Guide](./REACT_NATIVE_VIDEO_USAGE.md)** - Learn how to use react-native-video directly or with SDK enhancements
+
 ## Features
 
 ### Core Video Playback
