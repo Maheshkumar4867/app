@@ -1,38 +1,55 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "react-native-video-player-sdk",
+  "version": "1.0.0",
+  "description": "A comprehensive React Native video player SDK with advanced features",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "build": "tsc"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "keywords": [
+    "react-native",
+    "video",
+    "player",
+    "hls",
+    "dash",
+    "streaming",
+    "sdk"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.72.6",
+    "react-native-video": "^6.0.0",
+    "react-native-orientation-locker": "^1.5.0",
+    "react-native-keep-awake": "^4.0.0",
+    "react-native-device-info": "^10.11.0",
+    "react-native-fs": "^2.20.0",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-gesture-handler": "^2.13.4",
+    "react-native-reanimated": "^3.5.4",
+    "react-native-svg": "^14.1.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@react-native/eslint-config": "^0.72.2",
+    "@react-native/metro-config": "^0.72.11",
+    "@types/react": "^18.2.6",
+    "@types/react-native": "^0.72.2",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.38.0",
+    "jest": "^29.2.1",
+    "metro-react-native-babel-preset": "0.76.8",
+    "prettier": "^2.8.4",
+    "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
