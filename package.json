@@ -1,7 +1,7 @@
 {
   "name": "react-native-video-player-sdk",
   "version": "1.0.0",
-  "description": "A comprehensive React Native video player SDK with advanced features",
+  "description": "A comprehensive React Native video player SDK for Android and iOS with advanced features",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {

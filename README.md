@@ -1,6 +1,8 @@
 # React Native Video Player SDK
 
-A comprehensive React Native video player SDK with advanced features including HLS/DASH streaming, ads management, subtitles, thumbnails, and TV navigation support.
+A comprehensive React Native video player SDK for **Android and iOS** with advanced features including HLS/DASH streaming, ads management, subtitles, thumbnails, and TV navigation support.
+
+> ⚠️ **Platform Support**: This SDK is specifically designed for React Native mobile applications (Android & iOS). It is **not** for web browsers. For web video players, please use a different solution.
 
 ## Features
 
@@ -30,25 +32,19 @@ A comprehensive React Native video player SDK with advanced features including H
 npm install react-native-video-player-sdk
 ```
 
-### Peer Dependencies
+### Complete Setup Guide
+
+For detailed installation instructions including platform-specific setup, peer dependencies, and configuration:
+
+**📱 [React Native Setup Guide](./REACT_NATIVE_SETUP.md)** - Complete guide for Android & iOS
+
+### Quick Peer Dependencies
 
 ```bash
 npm install react-native-video react-native-orientation-locker react-native-keep-awake react-native-device-info react-native-linear-gradient react-native-gesture-handler react-native-reanimated react-native-svg
 ```
 
-### Platform Setup
-
-#### iOS
-Add to your `ios/Podfile`:
-```ruby
-pod 'react-native-video', :path => '../node_modules/react-native-video/react-native-video.podspec'
-```
-
-#### Android
-Add to your `android/app/build.gradle`:
-```gradle
-implementation project(':react-native-video')
-```
+> **Important**: After installing dependencies, you'll need to run platform-specific setup for iOS (pod install) and Android (gradle sync). See the setup guide for details.
 
 ## Quick Start
 

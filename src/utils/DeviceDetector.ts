@@ -1,5 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+// Note: react-native-device-info should be installed separately
+// import DeviceInfo from 'react-native-device-info';
 
 export default class DeviceDetector {
   private static deviceType: 'phone' | 'tablet' | 'tv' | null = null;
@@ -11,6 +12,8 @@ export default class DeviceDetector {
   private static async initialize(): Promise<void> {
     if (DeviceDetector.deviceInfo === null) {
       try {
+        // Try to use react-native-device-info if available
+        const DeviceInfo = require('react-native-device-info');
         DeviceDetector.deviceInfo = {
           isTablet: await DeviceInfo.isTablet(),
           deviceType: await DeviceInfo.getDeviceType(),
@@ -20,8 +23,15 @@ export default class DeviceDetector {
           model: DeviceInfo.getModel(),
         };
       } catch (error) {
-        console.warn('DeviceDetector: Failed to get device info', error);
-        DeviceDetector.deviceInfo = {};
+        console.warn('DeviceDetector: react-native-device-info not available, using fallback detection', error);
+        DeviceDetector.deviceInfo = {
+          isTablet: false,
+          deviceType: 'unknown',
+          systemName: Platform.OS,
+          systemVersion: Platform.Version?.toString() || 'unknown',
+          brand: 'unknown',
+          model: 'unknown',
+        };
       }
     }
   }

@@ -4,7 +4,7 @@ import Logger from '../utils/Logger';
 
 export default class NativePlayer extends PlayerEngine {
   private logger = Logger.createScopedLogger('NativePlayer');
-  private videoElement: HTMLVideoElement | null = null;
+  private videoRef: any = null;
   private currentTime = 0;
   private duration = 0;
   private playing = false;
@@ -87,15 +87,15 @@ export default class NativePlayer extends PlayerEngine {
   protected handleDestroy(): void {
     this.stopProgressUpdate();
     
-    if (this.videoElement) {
-      // Clean up video element
-      this.videoElement = null;
+    if (this.videoRef) {
+      // Clean up video reference
+      this.videoRef = null;
     }
     
     this.logger.info('Native player destroyed');
   }
 
-  private progressUpdateInterval: NodeJS.Timeout | null = null;
+  private progressUpdateInterval: ReturnType<typeof setInterval> | null = null;
 
   private startProgressUpdate(): void {
     this.stopProgressUpdate();

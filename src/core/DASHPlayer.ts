@@ -5,7 +5,7 @@ import Logger from '../utils/Logger';
 export default class DASHPlayer extends PlayerEngine {
   private logger = Logger.createScopedLogger('DASHPlayer');
   private dashInstance: any = null;
-  private videoElement: HTMLVideoElement | null = null;
+  private videoRef: any = null;
   private currentTime = 0;
   private duration = 0;
   private playing = false;
@@ -94,7 +94,7 @@ export default class DASHPlayer extends PlayerEngine {
     this.logger.info('DASH player destroyed');
   }
 
-  private progressUpdateInterval: NodeJS.Timeout | null = null;
+  private progressUpdateInterval: ReturnType<typeof setInterval> | null = null;
 
   private startProgressUpdate(): void {
     this.stopProgressUpdate();

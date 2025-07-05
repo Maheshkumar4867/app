@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import DeviceDetector from './DeviceDetector';
 import Logger from './Logger';
 
@@ -212,29 +213,35 @@ export default class CodecDetector {
 
   private static canPlayType(codec: string): boolean {
     try {
-      // In a real implementation, this would use HTMLMediaElement.canPlayType()
-      // For now, we'll simulate based on common codec support
+      // React Native codec support detection
       const normalizedCodec = codec.toLowerCase();
       
-      // Simulate common codec support
+      // Android and iOS common codec support
       if (normalizedCodec.includes('mp4') && normalizedCodec.includes('avc1')) {
-        return true; // H.264 is widely supported
+        return true; // H.264 is widely supported on both platforms
       }
       
       if (normalizedCodec.includes('mp4') && normalizedCodec.includes('mp4a')) {
-        return true; // AAC is widely supported
+        return true; // AAC is widely supported on both platforms
       }
       
-      if (normalizedCodec.includes('webm') && normalizedCodec.includes('vp8')) {
-        return true; // VP8 is widely supported
+      // Platform-specific codec support
+      if (Platform.OS === 'android') {
+        if (normalizedCodec.includes('webm') && normalizedCodec.includes('vp8')) {
+          return true; // VP8 supported on Android
+        }
+        if (normalizedCodec.includes('webm') && normalizedCodec.includes('vp9')) {
+          return true; // VP9 supported on Android
+        }
+        if (normalizedCodec.includes('opus') || normalizedCodec.includes('vorbis')) {
+          return true; // Opus and Vorbis supported on Android
+        }
       }
       
-      if (normalizedCodec.includes('webm') && normalizedCodec.includes('vp9')) {
-        return true; // VP9 is widely supported
-      }
-      
-      if (normalizedCodec.includes('opus') || normalizedCodec.includes('vorbis')) {
-        return true; // Opus and Vorbis are widely supported
+      if (Platform.OS === 'ios') {
+        if (normalizedCodec.includes('hev1') || normalizedCodec.includes('hvc1')) {
+          return true; // H.265 supported on iOS 11+
+        }
       }
 
       return false;
